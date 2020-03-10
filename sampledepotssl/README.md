@@ -3,8 +3,8 @@
 ## コンテナの配備方法
 以下のコマンドでHelix Coreサーバを配備したコンテナを起動します。
 ```
-docker build -t p4d .
-docker run -p 1666:1666 -itd p4d
+docker build -t p4dssl .
+docker run -p 1666:1666 -itd p4dssl
 ```
 
 docker-composeでもコンテナを起動できます。
@@ -16,7 +16,7 @@ docker-compose up -d
 ```
 - unicode有効
 - ファイルの大文字小文字を区別する
-- SSL無効
+- SSL有効
 - 1666ポートで稼働
 - SampleDepotを用いて構築
 - Helix Coreのsuper権限をもつユーザとしてbrunoを使用可
