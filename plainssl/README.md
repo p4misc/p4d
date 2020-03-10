@@ -12,6 +12,15 @@ docker-composeでもコンテナを起動できます。
 docker-compose up -d
 ```
 
+## Helix Coreサーバの設定
+```
+- unicode有効
+- ファイルの大文字小文字を区別しない
+- SSL有効
+- 1666ポートで稼働
+- 事前登録ユーザなし
+```
+
 ## Helix Coreサーバへのアクセス方法
 P4Vを起動して、ssl:`IPアドレス`:1666ポートで待ち受けしているDockerコンテナ内のHelix Coreにアクセスします。
 
