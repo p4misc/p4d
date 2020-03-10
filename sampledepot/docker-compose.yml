@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  p4d:
+    build: .
+    image: p4d
+    container_name: p4d
+    ports:
+      - 1666:1666
