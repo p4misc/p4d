@@ -2,7 +2,7 @@ FROM ubuntu:bionic as ubuntu18
 LABEL maintainer "p4misc <p4miscjp@gmail.com>"
 
 RUN apt-get update -y \
-    && apt-get install -y vim wget \
+    && apt-get install -y vim wget unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

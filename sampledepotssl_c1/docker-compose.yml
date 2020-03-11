@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  p4dssl:
+    build: .
+    image: p4dssl
+    container_name: p4dssl
+    ports:
+      - 1666:1666
