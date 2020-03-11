@@ -18,14 +18,14 @@ RUN useradd -U -m -d /opt/perforce perforce \
 USER perforce
 
 RUN cd /opt/perforce/bin \
-    && wget http://ftp.perforce.com/perforce/r19.2/bin.linux26x86_64/p4 \
+    && wget -q http://ftp.perforce.com/perforce/r19.2/bin.linux26x86_64/p4 \
     && chmod 770 p4
 RUN cd /opt/perforce/sbin \
-    && wget http://ftp.perforce.com/perforce/r19.2/bin.linux26x86_64/p4d \
+    && wget -q http://ftp.perforce.com/perforce/r19.2/bin.linux26x86_64/p4d \
     && chmod 770 p4d
 
 RUN cd /opt/perforce \
-    && wget http://ftp.perforce.com/pub/perforce/tools/sampledepot.tar.gz \
+    && wget -q http://ftp.perforce.com/pub/perforce/tools/sampledepot.tar.gz \
     && tar xzvf sampledepot.tar.gz \
     && mv PerforceSample p4root \
     && chown -R perforce:perforce p4root
@@ -36,5 +36,10 @@ RUN cd /opt/perforce \
     && ./setup.sh
 
 EXPOSE 1666
+
+HEALTHCHECK \
+    --interval=2m \
+    --timeout=30s \
+    CMD p4 -p ssl:1666 info -s > /dev/null || exit 1
 
 CMD ["/opt/perforce/run.sh"]

@@ -34,7 +34,7 @@ EXPOSE 1666
 
 HEALTHCHECK \
     --interval=2m \
-    --timeout=10s \
-    CMD p4 info -s > /dev/null || exit 1
+    --timeout=30s \
+    CMD p4 -p 1666 info -s > /dev/null || exit 1
 
 CMD ["/opt/perforce/run.sh"]
