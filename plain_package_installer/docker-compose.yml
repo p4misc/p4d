@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  p4d:
+    build:
+      context: .
+      args:
+        - TCP_PORT=${TCP_PORT}
+        - P4_SUPER_USER=${P4_SUPER_USER}
+        - P4_SUPER_PASSWD=${P4_SUPER_PASSWD}
+        - P4_SERVER_ID=${P4_SERVER_ID}
+        - P4_UNICODE=${P4_UNICODE}
+        - P4_CASE=${P4_CASE}
+        - P4_SSL=${P4_SSL}
+    image: p4d
+    container_name: p4d
+    ports:
+      - ${TCP_PORT}:${TCP_PORT}
