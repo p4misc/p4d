@@ -9,6 +9,12 @@ P4_UNICODE=--unicode
 P4_CASE=
 P4_SSL=
 
+if [ "$DOCKERFILE_PATH" = "" ]; then
+    DOCKERFILE_PATH_ARG=""
+else
+    DOCKERFILE_PATH_ARG="-f $DOCKERFILE_PATH"
+fi
+
 if [ "$DOCKER_TAG" = "pkg_ssl_c0" ]; then
   P4_CASE="--case 0"
   P4_SSL="ssl"
