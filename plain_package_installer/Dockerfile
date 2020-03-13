@@ -27,7 +27,7 @@ RUN apt-get update -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN /opt/perforce/sbin/configure-helix-p4d.sh ${P4_SERVER_ID} -n -p ${P4PORT} -r /opt/perforce/servers/${P4_SERVER_ID} -u ${P4_SUPER_USER} -P ${P4_SUPER_PASSWD} ${P4_UNICODE} ${P4_CASE}
+RUN /opt/perforce/sbin/configure-helix-p4d.sh ${P4_SERVER_ID} -n -p ${P4PORT} -r /opt/perforce/servers/${P4_SERVER_ID} -u ${P4_SUPER_USER} -P ${P4_SUPER_PASSWD} ${P4_UNICODE} --case ${P4_CASE}
 
 USER perforce
 
