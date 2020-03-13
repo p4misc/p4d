@@ -22,4 +22,4 @@ else
   echo "test"
 fi
 
-docker build --build-arg TCP_PORT=${TCP_PORT} --build-arg P4_SUPER_USER=${P4_SUPER_USER} --build-arg P4_SUPER_PASSWD=${P4_SUPER_PASSWD} --build-arg P4_SERVER_ID=${P4_SERVER_ID} --build-arg P4_UNICODE=${P4_UNICODE} --build-arg P4_CASE=${P4_CASE} --build-arg P4_SSL=${P4_SSL} ${DOCKERFILE_PATH_ARG} -t $IMAGE_NAME .
+docker build --build-arg TCP_PORT=${TCP_PORT} --build-arg P4_SUPER_USER=${P4_SUPER_USER} --build-arg P4_SUPER_PASSWD=${P4_SUPER_PASSWD} --build-arg P4_SERVER_ID=${P4_SERVER_ID} --build-arg P4_UNICODE=${P4_UNICODE} ${DOCKERFILE_PATH_ARG} -t $IMAGE_NAME .
