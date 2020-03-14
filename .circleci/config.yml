@@ -32,3 +32,9 @@ jobs:
             sudo -E "echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME}"
             sudo -E docker-compose up -d
 
+workflows:
+  version: 2.1
+  plain_c0:
+    jobs:
+      - build:
+        context: dockerhub
