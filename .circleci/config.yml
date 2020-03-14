@@ -24,6 +24,7 @@ jobs:
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
             ###
             for TARGET in plain_c0 plain_c1; do
+              echo $TARGET
               cd ~/project/$TARGET
               sudo -E docker-compose build p4misc/p4d:$TARGET
               sudo -E docker tag p4d p4misc/p4d:$TARGET
