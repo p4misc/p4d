@@ -23,7 +23,7 @@ jobs:
           command: |
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
             ###
-            cd ~/plain_package_installer
+            cd ~/project/plain_package_installer
             for TARGET in pkg_c0 pkg_c1 pkg_ssl_c0 pkg_ssl_c1; do
               sudo -E ./hooks/build $TARGET
               sudo -E docker tag p4d p4misc/p4d:$TARGET
