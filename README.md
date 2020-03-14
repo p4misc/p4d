@@ -27,7 +27,7 @@
   DockerHubタグ名を使用して以下のコマンドを実行します。
 
   ```
-  docker pull p4misc/p4d:ディレクトリ名
+  docker pull p4misc/p4d:DockerHubタグ名
   ```
 
   
