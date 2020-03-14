@@ -23,11 +23,18 @@ jobs:
           command: |
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
             ###
-            for TARGET in plain_c0 plain_c1; do
+            for TARGET in plain_c0 plain_c1 sampledepot_c0 sampledepot_c1; do
               echo $TARGET
               cd ~/project/$TARGET
-              sudo -E docker-compose build p4misc/p4d:$TARGET
+              sudo -E docker-compose build
               sudo -E docker tag p4d p4misc/p4d:$TARGET
+              sudo -E docker push p4misc/p4d:$TARGET
+            done
+            for TARGET in plainssl_c0 plainssl_c1 sampledepotssl_c0 sampledepotssl_c1; do
+              echo $TARGET
+              cd ~/project/$TARGET
+              sudo -E docker-compose build
+              sudo -E docker tag p4dssl p4misc/p4d:$TARGET
               sudo -E docker push p4misc/p4d:$TARGET
             done
 
