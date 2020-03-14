@@ -25,5 +25,6 @@ jobs:
             ls -al
             ls -al ~/project
             cd ~/project/plain_c0
+            env
             sudo docker-compose up -d
 
