@@ -13,7 +13,7 @@ jobs:
           name: Dockerクライアントをインストール
           command: |
             set -x
-            VER="17.03.0-ce"
+            VER="18.06.3-ce"
             curl -L -o ~/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
             tar -xzf ~/docker-$VER.tgz
             sudo mv ~/project/docker/* /usr/bin
@@ -22,7 +22,7 @@ jobs:
           name: Docker Composeをインストール
           command: |
             set -x
-            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
