@@ -3,3 +3,6 @@ jobs:
   build:
     docker:
       - image: p4misc/p4d:pkg_c0
+
+    steps:
+      - checkout
