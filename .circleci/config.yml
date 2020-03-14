@@ -32,7 +32,8 @@ jobs:
             sudo -E docker-compose up -d
 
 workflows:
+  version: 2
   plain_c0:
     jobs:
-      - build
-
+      - build:
+        context: dockerhub
