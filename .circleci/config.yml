@@ -7,16 +7,8 @@ jobs:
     steps:
       - checkout
 
-      - setup_remote_docker
-
-      - run:
-          name: Dockerクライアントをインストール
-          command: |
-            set -x
-            VER="18.06.3-ce"
-            curl -L -o ~/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
-            tar -xzf ~/docker-$VER.tgz
-            sudo mv ~/project/docker/* /usr/bin
+      - setup_remote_docker:
+        version: 18.06.0-ce
 
       - run:
           name: Docker Composeをインストール
