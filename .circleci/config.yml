@@ -10,13 +10,13 @@ jobs:
       - setup_remote_docker:
           version: 18.06.0-ce
 
-      - run:
-          name: Docker Composeをインストール
-          command: |
-            set -x
-            curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      #- run:
+      #    name: Docker Composeをインストール
+      #    command: |
+      #      set -x
+      #      curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+      #      chmod +x ~/docker-compose
+      #      sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
       - run:
           name: Dockerイメージのビルド
@@ -26,17 +26,8 @@ jobs:
             for TARGET in plain_c0 plain_c1 plainssl_c0 plainssl_c1 sampledepot_c0 sampledepot_c1 sampledepotssl_c0 sampledepotssl_c1; do
               cd ~/project/$TARGET
               sudo -E docker build -t p4misc/p4d:$TARGET .
-              #sudo -E docker-compose build
-              #sudo -E docker tag p4d p4misc/p4d:$TARGET
               sudo -E docker push p4misc/p4d:$TARGET
             done
-            ###
-            #for TARGET in plainssl_c0 plainssl_c1 sampledepotssl_c0 sampledepotssl_c1; do
-            #  cd ~/project/$TARGET
-            #  sudo -E docker-compose build
-            #  sudo -E docker tag p4dssl p4misc/p4d:$TARGET
-            #  sudo -E docker push p4misc/p4d:$TARGET
-            #done
             ###
             cd ~/project/plain_package_installer
             export DOCKERFILE_PATH=Dockerfile
