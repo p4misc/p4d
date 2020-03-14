@@ -36,4 +36,4 @@ workflows:
   plain_c0:
     jobs:
       - build:
-        context: dockerhub
+          context: dockerhub
