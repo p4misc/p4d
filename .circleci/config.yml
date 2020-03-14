@@ -17,6 +17,6 @@ jobs:
       - run:
           name: ディレクトリの内容を確認
           command: |
-            cd
+            cd ~/project
             ls -al
 
