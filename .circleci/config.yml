@@ -21,15 +21,11 @@ jobs:
       - run:
           name: ディレクトリの内容を確認
           command: |
-            cd
-            ls -al
-            ls -al ~/project
             cd ~/project/plain_c0
-            echo ${DOCKERHUB_USERNAME}
-            sudo -E echo ${DOCKERHUB_USERNAME}
-            echo ${DOCKERHUB_USERNAME}
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
-            sudo -E docker-compose up -d
+            sudo -E docker images
+            sudo -E docker tag p4d p4misc/p4d:plain_c0
+            sudo -E docker push p4misc/p4d:plain_c0
 
 workflows:
   plain_c0:
