@@ -34,6 +34,7 @@ jobs:
 workflows:
   version: 2.1
   plain_c0:
-    context: dockerhub
     jobs:
-      - build
+      - build:
+        context: dockerhub
+
