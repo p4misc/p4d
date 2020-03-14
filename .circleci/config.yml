@@ -19,4 +19,6 @@ jobs:
           command: |
             cd ~/project
             ls -al
+            sudo docker ps -a
+            sudo docker-compose
 
