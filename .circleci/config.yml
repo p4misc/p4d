@@ -26,7 +26,6 @@ jobs:
             ls -al
             ls -al ~/project
             cd ~/project/plain_c0
-            sudo -E env
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME}
             sudo -E docker-compose up -d
 
