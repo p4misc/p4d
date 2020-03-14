@@ -22,10 +22,13 @@ jobs:
           name: Dockerイメージのビルド
           command: |
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
-            TARGET=plain_c0
-            cd ~/project/$TARGET
-            sudo -E docker-compose build p4misc/p4d:$TARGET
-            sudo -E docker push p4misc/p4d:$TARGET
+            ###
+            for target in plain_c0 plain_c1; do
+              cd ~/project/$TARGET
+              sudo -E docker-compose build p4misc/p4d:$TARGET
+              sudo -E docker tag p4d p4misc/p4d:$TARGET
+              sudo -E docker push p4misc/p4d:$TARGET
+            done
 
 workflows:
   plain_c0:
