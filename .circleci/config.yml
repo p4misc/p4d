@@ -25,7 +25,7 @@ jobs:
             ###
             cd ~/project/plain_package_installer
             for TARGET in pkg_c0 pkg_c1 pkg_ssl_c0 pkg_ssl_c1; do
-              sudo -E ./hooks/build $TARGET
+              sudo -E /bin/bash ./hooks/build $TARGET
               sudo -E docker tag p4d p4misc/p4d:$TARGET
               sudo -E docker push p4misc/p4d:$TARGET
             done
