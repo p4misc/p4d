@@ -1,4 +1,4 @@
-# Helix Coreサーバの構築用Dockerfile
+# 調査用: Helix Coreサーバの構築用Dockerfile
 
 各ディレクトリには、以下の設定値で起動するHelix CoreのDockerfileを格納しています。
 
