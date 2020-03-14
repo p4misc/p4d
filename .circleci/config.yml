@@ -28,7 +28,7 @@ jobs:
             echo ${DOCKERHUB_USERNAME}
             sudo -E echo ${DOCKERHUB_USERNAME}
             echo ${DOCKERHUB_USERNAME}
-            sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME}
+            sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
             sudo -E docker-compose up -d
 
 workflows:
