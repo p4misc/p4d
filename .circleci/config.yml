@@ -32,7 +32,6 @@ jobs:
             sudo -E docker-compose up -d
 
 workflows:
-  version: 2.1
   plain_c0:
     jobs:
       - build:
