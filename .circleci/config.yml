@@ -20,7 +20,6 @@ jobs:
 
       - run:
           name: ディレクトリの内容を確認
-          context: dockerhub
           command: |
             cd
             ls -al
@@ -35,6 +34,6 @@ jobs:
 workflows:
   version: 2.1
   plain_c0:
+    context: dockerhub
     jobs:
-      - build:
-        context: dockerhub
+      - build
