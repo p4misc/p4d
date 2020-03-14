@@ -23,6 +23,7 @@ jobs:
           command: |
             cd ~/project/plain_c0
             sudo -E echo ${DOCKERHUB_PASSWD} | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
+            sudo -E docker-compose build
             sudo -E docker images
             sudo -E docker tag p4d p4misc/p4d:plain_c0
             sudo -E docker push p4misc/p4d:plain_c0
