@@ -16,6 +16,7 @@ jobs:
             VER="17.03.0-ce"
             curl -L -o ~/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
             tar -xzf ~/docker-$VER.tgz
+            sudo mv ~/docker/* /usr/bin
 
       - run:
           name: Docker Composeをインストール
