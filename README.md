@@ -16,6 +16,10 @@
 | plain_package_installer  | pkg_c1                | 区別しない   | 無効 | 有効    | なし           |
 | plain_package_installer  | pkg_ssl_c0            | 区別する     | 有効 | 有効    | なし           |
 | plain_package_installer  | pkg_ssl_c1            | 区別しない   | 有効 | 有効    | なし           |
+| plain_package_installer  | pkg_c0_sample         | 区別する     | 無効 | 有効    | あり           |
+| plain_package_installer  | pkg_c1_sample         | 区別しない   | 無効 | 有効    | あり           |
+| plain_package_installer  | pkg_c0_ssl_sample     | 区別する     | 有効 | 有効    | あり           |
+| plain_package_installer  | pkg_c1_ssl_sample     | 区別しない   | 有効 | 有効    | あり           |
 
 - ディレクトリ名の `c0` は、`大文字小文字の区別あり`を表します。
 
@@ -58,12 +62,13 @@ DockerのARG命令を使用して作成するHelix Coreサーバの設定を調�
 | 設定項目        | 設定値の例 | 説明                                                         |
 | --------------- | ---------- | ------------------------------------------------------------ |
 | TCP_PORT        | 1666       | Helix Coreの待ち受けポート番号                               |
+| P4PORT          | 1666       | SSLを有効にする場合は ssl:1666 のように設定<br />SSLを無効にする場合は 1666 のように設定<br />TCP_PORTにHelix Coreへの接続方式を加えたものです。 |
 | P4_SUPER_USER   | super      | Helix Coreのsuper権限をもつユーザのアカウント名              |
 | P4_SUPER_PASSWD | (省略)     | P4_SUPER_USERで設定したユーザのパスワード                    |
 | P4_SERVER_ID    | commit     | Helix Coreサーバの識別子                                     |
 | P4_UNICODE      | --unicode  | Unicodeモードを有効にする場合は --unicode を設定<br />Unicodeモードを有効にしない場合は値を空に設定 |
 | P4_CASE         | 0 または 1 | 大文字小文字を区別する場合は 0 を設定<br />大文字小文字を区別する場合は 1 を設定 |
-| P4_SSL          | ssl        | SSLを有効にする場合は ssl を設定<br />SSLを有効にしない場合は値を空に設定 |
+| P4_SAMPLE_DEPOT | 1          | サンプルディポを設置する場合は 1 を設定<br />サンプルディポを設置しない場合は値を空に設定 |
 
 docker-composeを実行
 
